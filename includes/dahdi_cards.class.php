@@ -1120,6 +1120,8 @@ class dahdi_cards {
 		    $this->spans[$num]['mfcr2_immediate_accept']		= $editspan['mfcr2_immediate_accept'] ? $editspan['mfcr2_immediate_accept'] : 'no';
 		    $this->spans[$num]['mfcr2_accept_on_offer'] 		= $editspan['mfcr2_accept_on_offer'] ? $editspan['mfcr2_accept_on_offer'] : 'yes';
 		    $this->spans[$num]['mfcr2_skip_category'] 			= $editspan['mfcr2_skip_category'] ? $editspan['mfcr2_skip_category'] : 'no';
+		    $this->spans[$num]['mfcr2_dtmf_dialing'] 			= $editspan['mfcr2_dtmf_dialing'] ? $editspan['mfcr2_dtmf_dialing'] : 'no';
+		    $this->spans[$num]['mfcr2_dtmf_detection'] 			= $editspan['mfcr2_dtmf_detection'] ? $editspan['mfcr2_dtmf_detection'] : 'no';
 		    $this->spans[$num]['mfcr2_forced_release'] 			= $editspan['mfcr2_forced_release'] ? $editspan['mfcr2_forced_release'] : 'no';
 		    $this->spans[$num]['mfcr2_charge_calls'] 			= $editspan['mfcr2_charge_calls'] ? $editspan['mfcr2_charge_calls'] : 'yes';
 		    $this->spans[$num]['mfcr2_advanced_protocol_file'] 	= $editspan['mfcr2_advanced_protocol_file'] ? $editspan['mfcr2_advanced_protocol_file'] : '';

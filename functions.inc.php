@@ -104,6 +104,8 @@ class dahdiconfig_conf {
 							if ($span['mfcr2_accept_on_offer']) {$output[] = "mfcr2_accept_on_offer={$span['mfcr2_accept_on_offer']}";}
 							if ($span['mfcr2_skip_category']) {$output[] = "mfcr2_skip_category={$span['mfcr2_skip_category']}";}
 							if ($span['mfcr2_forced_release']) {$output[] = "mfcr2_forced_release={$span['mfcr2_forced_release']}";}
+							if ($span['mfcr2_dtmf_dialing']) {$output[] = "mfcr2_dtmf_dialing={$span['mfcr2_dtmf_dialing']}";}
+							if ($span['mfcr2_dtmf_detection']) {$output[] = "mfcr2_dtmf_detection={$span['mfcr2_dtmf_detection']}";}
 							if ($span['mfcr2_charge_calls']) {$output[] = "mfcr2_charge_calls={$span['mfcr2_charge_calls']}";}
 							if ($span['mfcr2_advanced_protocol_file']) {$output[] = "mfcr2_advanced_protocol_file={$span['mfcr2_advanced_protocol_file']}";}
 						}

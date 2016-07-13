@@ -293,6 +293,42 @@
             </select>
     	</td>
     </tr>
+        <tr>
+        <td>
+            <label class="mfcr2-label" for="editspan_<?php echo $key?>_mfcr2_dtmf_dialing">
+                <a href="#" class="info"><?php echo _('DTMF Dialing'); ?>:
+                    <span>
+                        <?php echo _("_mfcr2_dtmf_dialing"); ?>
+                    </span>
+                </a>
+            </label>
+        </td>
+        <td>
+            <select id="editspan_<?php echo $key?>_mfcr2_dtmf_dialing" name="editspan_<?php echo $key?>_mfcr2_dtmf_dialing">
+                <option value="" <?php echo set_default($span['mfcr2_dtmf_dialing'],''); ?>></option>
+                <option value="no" <?php echo set_default($span['mfcr2_dtmf_dialing'],'no'); ?>><?php echo _('No')?></option>
+                <option value="yes" <?php echo set_default($span['mfcr2_dtmf_dialing'],'yes'); ?>><?php echo _('Yes')?></option>
+            </select>
+        </td>
+    </tr>
+        <tr>
+        <td>
+            <label class="mfcr2-label" for="editspan_<?php echo $key?>_mfcr2_dtmf_detection">
+                <a href="#" class="info"><?php echo _('DTMF Detection'); ?>:
+                    <span>
+                        <?php echo _("_mfcr2_dtmf_detection"); ?>
+                    </span>
+                </a>
+            </label>
+        </td>
+        <td>
+            <select id="editspan_<?php echo $key?>_mfcr2_dtmf_detection" name="editspan_<?php echo $key?>_mfcr2_dtmf_detection">
+                <option value="" <?php echo set_default($span['mfcr2_dtmf_detection'],''); ?>></option>
+                <option value="no" <?php echo set_default($span['mfcr2_dtmf_detection'],'no'); ?>><?php echo _('No')?></option>
+                <option value="yes" <?php echo set_default($span['mfcr2_dtmf_detection'],'yes'); ?>><?php echo _('Yes')?></option>
+            </select>
+        </td>
+    </tr>
     <tr>
     	<td>
     		<label class="mfcr2-label" for="editspan_<?php echo $key?>_mfcr2_advanced_protocol_file">

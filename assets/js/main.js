@@ -17,6 +17,8 @@ function mfcr2_set_defaults(span) {
     $('#editspan_' + span + '_mfcr2_skip_category').val('no');
     $('#editspan_' + span + '_mfcr2_forced_release').val('no');
     $('#editspan_' + span + '_mfcr2_charge_calls').val('yes');
+    $('#editspan_' + span + '_mfcr2_dtmf_dialing').val('no');
+    $('#editspan_' + span + '_mfcr2_dtmf_detection').val('no');
     $('#editspan_' + span + '_mfcr2_advanced_protocol_file').val('');
 }
 /* MFC/R2 show/hide */

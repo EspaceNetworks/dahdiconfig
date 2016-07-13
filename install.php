@@ -337,6 +337,18 @@ $cols = array(
 		"length" => 100,
 		"notnull" => false
 	),
+	"mfcr2_dtmf_dialing" => array(
+		"type" => "string",
+		"length" => 3,
+		"notnull" => true,
+		"default" => "no"
+	)
+	"mfcr2_dtmf_detection" => array(
+		"type" => "string",
+		"length" => 3,
+		"notnull" => true,
+		"default" => "no"
+	)
 );
 $table->modify($cols,array());
 out(_("Done"));
