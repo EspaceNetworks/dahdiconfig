@@ -96,7 +96,7 @@
                     </td>
                     <td>
                         <select id="editspan_<?php echo $key?>_switchtype" name="editspan_<?php echo $key?>_switchtype">
-                            <option value="national" <?php echo set_default($span['switchtype'],'national'); ?>><?php echo _("National ISDN 2 (<?php echo ('default')?>)")?></option>
+                            <option value="national" <?php echo set_default($span['switchtype'],'national'); ?>><?php echo _("National ISDN 2 (<?php echo _('default')?>)")?></option>
                             <option value="dms100" <?php echo set_default($span['switchtype'],'dms100'); ?>><?php echo _("Nortel DMS100")?></option>
                             <option value="4ess" <?php echo set_default($span['switchtype'],'4ess'); ?>><?php echo _("AT&amp;T 4ESS")?></option>
                             <option value="5ess" <?php echo set_default($span['switchtype'],'5ess'); ?>><?php echo _("Lucent 5ESS")?></option>

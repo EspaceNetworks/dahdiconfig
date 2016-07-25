@@ -286,7 +286,7 @@ $cols = array(
 		"type" => "decimal",
 		"notnull" => true,
 	),
-	"mfcr2_mfback_pulse_timeout" => array(
+	"mfcr2_metering_pulse_timeout" => array(
 		"type" => "decimal",
 		"notnull" => true,
 	),
@@ -326,7 +326,7 @@ $cols = array(
 		"notnull" => true,
 		"default" => "yes"
 	),
-	"mfcr2_skip_catefory" => array(
+	"mfcr2_skip_category" => array(
 		"type" => "string",
 		"length" => 3,
 		"notnull" => true,
@@ -342,7 +342,7 @@ $cols = array(
 		"length" => 3,
 		"notnull" => true,
 		"default" => "no"
-	)
+	),
 	"mfcr2_dtmf_detection" => array(
 		"type" => "string",
 		"length" => 3,

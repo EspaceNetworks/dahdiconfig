@@ -1102,8 +1102,8 @@ class dahdi_cards {
 		$this->spans[$num]['priexclusive'] = $editspan['priexclusive'];
 		$this->spans[$num]['rxgain'] = !empty($editspan['rxgain']) ? $editspan['rxgain'] : '0.0';
 		$this->spans[$num]['txgain'] = !empty($editspan['txgain']) ? $editspan['txgain'] : '0.0';
-		$this->spans[$num]['additional_groups'] = !empty($editspan['additional_groups']) ? $editspan['additional_groups'] : 'array()';
-		
+		$this->spans[$num]['additional_groups'] = !empty($editspan['additional_groups']) ? $editspan['additional_groups'] : '';
+
 		if ($editspan['signalling'] == "mfc_r2") {
 		    $this->spans[$num]['mfcr2_variant'] 				= $editspan['mfcr2_variant'] ? $editspan['mfcr2_variant'] : 'ITU';
 		    $this->spans[$num]['mfcr2_max_ani'] 				= $editspan['mfcr2_max_ani'] ? $editspan['mfcr2_max_ani'] : 10;
@@ -1253,10 +1253,9 @@ class dahdi_cards {
 		}
 		unset($result);
 
-		$flds = array('span', 'manufacturer', 'framing', 'definedchans', 'coding', 'signalling', 'switchtype', 'syncsrc', 'lbo', 'pridialplan', 'prilocaldialplan', 'group', 'context', 'reserved_ch', 'priexclusive','additional_groups','type','txgain','rxgain', 'mfcr2_variant', 'mfcr2_get_ani_first', 'mfcr2_max_ani', 'mfcr2_max_dnis', 'mfcr2_category', 'mfcr2_call_files', 'mfcr2_logdir', 'mfcr2_logging', 'mfcr2_mfback_timeout', 'mfcr2_metering_pulse_timeout', 'mfcr2_allow_collect_calls', 'mfcr2_double_answer', 'mfcr2_immediate_accept', 'mfcr2_forced_release', 'mfcr2_charge_calls', 'mfcr2_accept_on_offer', 'mfcr2_skip_category', 'mfcr2_advanced_protocol_file');
+		$flds = array('span', 'manufacturer', 'framing', 'definedchans', 'coding', 'signalling', 'switchtype', 'syncsrc', 'lbo', 'pridialplan', 'prilocaldialplan', 'group', 'context', 'reserved_ch', 'priexclusive','additional_groups','type','txgain','rxgain', 'mfcr2_variant', 'mfcr2_get_ani_first', 'mfcr2_max_ani', 'mfcr2_max_dnis', 'mfcr2_category', 'mfcr2_call_files', 'mfcr2_logdir', 'mfcr2_logging', 'mfcr2_mfback_timeout', 'mfcr2_metering_pulse_timeout', 'mfcr2_allow_collect_calls', 'mfcr2_double_answer', 'mfcr2_immediate_accept', 'mfcr2_forced_release', 'mfcr2_charge_calls', 'mfcr2_accept_on_offer', 'mfcr2_skip_category', 'mfcr2_advanced_protocol_file', 'mfcr2_dtmf_dialing', 'mfcr2_dtmf_detection');
 
 		$sql = 'INSERT INTO dahdi_spans (`'.implode('`, `',$flds).'`) VALUES ';
-
 		$inserts = array();
 		foreach ($this->spans as $key=>$span) {
 			$values = array();
@@ -1274,8 +1273,8 @@ class dahdi_cards {
 			$inserts[] = '('.implode(', ',$values).')';
 			unset($values);
 		}
-		$sql .= implode(', ', $inserts);
 
+		$sql .= implode(', ', $inserts);
 		$result = $db->query($sql);
 		if (DB::IsError($result)) {
 			//die_freepbx($result->getDebugInfo());
@@ -1337,14 +1336,16 @@ class dahdi_cards {
 					$fx = 'e&m';
 				}
 				$data = json_decode($span['additional_groups'], true);
-				foreach($data as $s){
-					if (strtolower($s['group'] == 's')){
-						continue;
-					}
-					if ($span['signalling'] == 'mfc_r2') {
-						$fxx[$fx] .= $s['startchan'].'-'.$s['endchan'].':1101,';
-					} else {
-						$fxx[$fx] .= $s['startchan'].'-'.$s['endchan'].',';
+				if (is_array($data)) {
+					foreach($data as $s){
+						if (strtolower($s['group'] == 's')){
+							continue;
+						}
+						if ($span['signalling'] == 'mfc_r2') {
+							$fxx[$fx] .= $s['startchan'].'-'.$s['endchan'].':1101,';
+						} else {
+							$fxx[$fx] .= $s['startchan'].'-'.$s['endchan'].',';
+						}
 					}
 				}
 			} else if (substr($span['signalling'],0,3) == 'pri' && !preg_match('/sangoma/i',$span['manufacturer'])) {
